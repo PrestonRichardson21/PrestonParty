@@ -1,11 +1,39 @@
 <!DOCTYPE html>
-    <html>
-        <head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preston Party</title>
+    
 
-        </head>
-        <body>
-            <h1>They're A 10 But...</h1>
-            <button id = "spinButton">SPIN</button>
-            <textbox id="resultTextbox"></textbox>
-        </body>
-    </html>
+    <script type ="module">
+        import { spin, score} from './app.js';
+      
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("spin").addEventListener("click", function() {
+                spin();
+            })
+            document.getElementById("p1button").addEventListener("click", function() {
+                score("p1score");
+            });
+            document.getElementById("p2button").addEventListener("click", function() {
+                score("p2score");
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+    <h1>They're a 10 but...</h1>
+    <button id = "spin">Spin</button>
+    <div id="spinResult"></div>
+    <div id="cardResult"></div>
+    <button id = "p1button">Player 1</button>
+    <div id="p1score">0</div>
+    <button id = "p2button">Player 2</button>
+    <div id="p2score">0</div>
+</body>
+
+  
+</html>
