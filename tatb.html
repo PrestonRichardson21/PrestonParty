@@ -29,10 +29,63 @@
     <button id = "spin">Spin</button>
     <div id="spinResult"></div>
     <div id="cardResult"></div>
-    <button id = "p1button">Player 1</button>
+    <!-- <button id = "p1button">Player 1</button>
     <div id="p1score">0</div>
     <button id = "p2button">Player 2</button>
-    <div id="p2score">0</div>
+    <div id="p2score">0</div> -->
+
+  
+    <label for="playerText">Enter player button text:</label>
+    <input type="text" id="playerText" />
+    <button id="addPlayer">Add Player</button>
+    <div id="playerButtons"></div>
+    <div id="playerScores"></div>
+
+    <script>
+        const scores = {};
+        let playerCount = 0;
+
+        document.getElementById("addPlayer").addEventListener("click", () => {
+            const playerText = document.getElementById("playerText").value;
+            if (playerText.trim() === "") {
+                alert("Please enter valid text for the player button.");
+                return;
+            }
+
+            playerCount++;
+            const playerId = `player${playerCount}`;
+
+            // Initialize score for the new player
+            scores[playerId] = 0;
+
+            // Create player button
+            const button = document.createElement("button");
+            button.id = playerId;
+            button.innerHTML = playerText;
+            button.addEventListener("click", () => {
+                scores[playerId]++;
+                updateScores();
+            });
+            document.getElementById("playerButtons").appendChild(button);
+
+            // Create score display
+            const scoreDiv = document.createElement("div");
+            scoreDiv.id = `score${playerCount}`;
+            scoreDiv.innerHTML = `${playerText} Score: 0`;
+            document.getElementById("playerScores").appendChild(scoreDiv);
+
+            // Clear the input field
+            document.getElementById("playerText").value = "";
+        });
+
+        function updateScores() {
+            for (let i = 1; i <= playerCount; i++) {
+                const playerId = `player${i}`;
+                const scoreDiv = document.getElementById(`score${i}`);
+                scoreDiv.innerHTML = `${document.getElementById(playerId).innerHTML} Score: ${scores[playerId]}`;
+            }
+        }
+    </script>
 </body>
 
   
