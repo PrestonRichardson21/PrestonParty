@@ -1,13 +1,19 @@
 <!DOCTYPE html>
-    <html>
-        <head>
-            <link res="stylesheet" href="style.css">
-            <sript id = "js" src ="app.js"async>
-
-            </sript>
-        </head>
-        <body>
-            <h1>Preston's Party</h1>
-            <button onclick = "window.location.href = 'tatb.html'">They're a 10 but...</button>
-        </body>
-    </html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preston Party</title>
+    <link rel="stylesheet" href="stylesheet.css"> <!-- Link to the CSS file -->
+    <script type="module">
+        import { goToPage } from './app.js';
+        window.goToPage = goToPage; // Make the function available in the global scope
+    </script>
+</head>
+<body>
+    <h1>Preston Party</h1>
+    <button id="goToTatb" onclick="goToPage(`./tatb.html`)">They're a 10 but...</button>
+    <button id="hotSeat" onclick="goToPage(`./hotSeat.html`)">Hot Seat</button>
+</body>
+  
+</html>
