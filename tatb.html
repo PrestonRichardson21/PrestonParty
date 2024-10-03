@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Preston Party</title>
-    
+    <link rel="stylesheet" href="stylesheet.css"> <!-- Link to the CSS file -->
 
     <script type ="module">
-        import { spin, score} from './app.js';
+                let showRules =()=> {
+    alert(`
+         1. Whoever went on a date most recently serves as the first host. The host spins first. 
+         2. In their head the host picks the new number they would give that partner based on how much they value/hate the trait in question.
+         3. Once the host is ready, they count down from three. Using their fingers, everyone must then say what number they would give the potnetial partner.
+         4. Everyone who matches the host gets a point.
+         5. Whoever gets ten points first wins!`);
+        };
+
+        import { spin, score, goToPage} from './app.js';
       
         document.addEventListener("DOMContentLoaded", function() {
             document.getElementById("spin").addEventListener("click", function() {
                 spin();
-            })
-            document.getElementById("p1button").addEventListener("click", function() {
-                score("p1score");
             });
-            document.getElementById("p2button").addEventListener("click", function() {
-                score("p2score");
+            document.getElementById("showRules").addEventListener("click", function() {
+                showRules();
             });
-        });
 
+        });
 
     </script>
 </head>
@@ -29,18 +35,19 @@
     <button id = "spin">Spin</button>
     <div id="spinResult"></div>
     <div id="cardResult"></div>
-    <!-- <button id = "p1button">Player 1</button>
-    <div id="p1score">0</div>
-    <button id = "p2button">Player 2</button>
-    <div id="p2score">0</div> -->
-
-  
     <label for="playerText">Enter player button text:</label>
     <input type="text" id="playerText" />
     <button id="addPlayer">Add Player</button>
     <div id="playerButtons"></div>
     <div id="playerScores"></div>
-
+    <!-- <button id="showRules">Rules</button> -->
+    <h3 style= color:rgb(6,56,48)>Rules</h3>
+    <h3>1. Higher ratings on the spinner gets paired with a terrible trait while lower ratings get good traits 
+        <br><br> 2. Whoever went on a date most recently serves as the first host. The host spins first. 
+        <br><br> 3. In their head the host picks the new number they would give that partner based on how much they value/hate the trait in question.
+        <br><br> 4. Once the host is ready, they count down from three. Using their fingers, everyone must then say what number they would give the potnetial partner.
+        <br><br> 5. Everyone who matches the host gets a point.
+        <br><br> 6. Whoever gets ten points first wins!</h3>
     <script>
         const scores = {};
         let playerCount = 0;
