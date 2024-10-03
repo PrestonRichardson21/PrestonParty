@@ -1,0 +1,50 @@
+body {
+    background-color: teal;
+    margin: px;
+    padding: 50px 60px;
+
+}
+h1{
+    color: white;
+    text-align: center;
+    border: blue;
+    font-family: cursive;
+    margin: 10px;
+
+}
+h3{
+    color: white;
+    border: blue;
+    font-family: cursive;
+    margin: 0px;
+
+}
+div{
+    color: white;
+    background-color: rgb(5, 89, 89);
+    margin:10px, 10px;
+    padding: 10px, 10px;
+    
+}
+label{
+    color: white;
+    font-family: cursive;
+    margin: 10px, 10px;
+    padding: 10px;
+}
+input{
+    margin: 10px;
+    padding: 10px;
+}
+#addPlayer:hover {
+    background-color: blue;
+}
+#spin:hover{
+    background-color: blue;
+}
+
+button{
+    background-color: rgb(6, 56, 48);
+    color:white;
+    margin: 10px;
+}
